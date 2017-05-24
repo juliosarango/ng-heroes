@@ -1,0 +1,15 @@
+<h1>Resultado <small>de búsqueda</small></h1>
+<hr>
+<div class="card-columns" >
+  <div class="card animatated fadeIn fast " *ngFor="let heroe of heroes; let i = index">
+    <img class="card-img-top img-fluid" [src]="heroe.img" [alt]="heroe.nombre">
+    <div class="card-block">
+      <h4 class="card-title">{{heroe.nombre}}</h4>
+      <p class="card-text">{{ heroe.bio }}</p>
+      <p class="card-text"><small class="text-muted"> {{ heroe.aparicion | date:'y' }} </small></p>
+
+      <!-- Segunda forma: usando routerLink-->
+      <a [routerLink]="['/home']">Regresar</a>
+    </div>
+  </div>
+</div>
