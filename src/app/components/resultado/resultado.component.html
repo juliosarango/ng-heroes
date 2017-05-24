@@ -1,7 +1,8 @@
-<h1>Resultado <small>de búsqueda</small></h1>
+<h1>Búsqueda: <small>{{ termino }}</small></h1>
 <hr>
-<div class="card-columns" >
-  <div class="card animatated fadeIn fast " *ngFor="let heroe of heroes; let i = index">
+
+<div *ngIf="heroes" class="card-columns" >
+  <div class="card animated fadeIn fast " *ngFor="let heroe of heroes; let i = index">
     <img class="card-img-top img-fluid" [src]="heroe.img" [alt]="heroe.nombre">
     <div class="card-block">
       <h4 class="card-title">{{heroe.nombre}}</h4>
@@ -12,4 +13,8 @@
       <a [routerLink]="['/home']">Regresar</a>
     </div>
   </div>
+</div>
+<!-- En caso de que no haya resultados -->
+<div *ngIf="heroes.length == 0" class="alert alert-info animated fadeIn" role="alert">
+  <strong>Héroe no encontrado.</strong> No existen resultados con el término {{termino}}.
 </div>
